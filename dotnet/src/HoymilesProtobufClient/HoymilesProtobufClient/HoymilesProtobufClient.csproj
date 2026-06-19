@@ -10,7 +10,6 @@
     <!-- Generate only the message classes (no gRPC service code) into Generated/Proto and include them in compilation -->
     <Protobuf Include="../../../../hoymiles_wifi/protobuf/*.proto"
               ProtoRoot="../../../../hoymiles_wifi/protobuf"
-              Link="Protos\%(Filename)%(Extension)"
               GrpcServices="None"
               OutputDir="hoymiles_wifi_Protobuf"
               CompileOutputs="false" />
@@ -20,11 +19,6 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>true</PrivateAssets>
     </PackageReference>
-  </ItemGroup>
-
-  <!-- Prevent SDK default wildcard from implicitly including generated sources twice -->
-  <ItemGroup>
-    <Compile Remove="hoymiles_wifi_Protobuf\\**\\*.cs" />
   </ItemGroup>
 
 </Project>
