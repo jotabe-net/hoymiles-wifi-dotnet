@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/HoymilesProtobufClient/">
+    <Project Path="src/HoymilesProtobufClient/HoymilesProtobufClient/HoymilesProtobufClient.csproj" />
+  </Folder>
+</Solution>

@@ -1,0 +1,30 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Generate only the message classes (no gRPC service code) into Generated/Proto and include them in compilation -->
+    <Protobuf Include="../../../../hoymiles_wifi/protobuf/*.proto"
+              ProtoRoot="../../../../hoymiles_wifi/protobuf"
+              Link="Protos\%(Filename)%(Extension)"
+              GrpcServices="None"
+              OutputDir="hoymiles_wifi_Protobuf"
+              CompileOutputs="false" />
+
+    <PackageReference Include="Google.Protobuf" Version="3.29.2" />
+    <PackageReference Include="Grpc.Tools" Version="2.72.0" PrivateAssets="All">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>true</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <!-- Prevent SDK default wildcard from implicitly including generated sources twice -->
+  <ItemGroup>
+    <Compile Remove="hoymiles_wifi_Protobuf\\**\\*.cs" />
+  </ItemGroup>
+
+</Project>
